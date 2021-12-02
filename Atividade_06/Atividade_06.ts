@@ -1,16 +1,16 @@
 ﻿/*1.Assinale verdadeiro ou falso:
-a. ( ) Objetos são modelos para classes;
-b. ( ) Atributos de uma classe devem ser obrigatoriamente inicializados para
+a. (f) Objetos são modelos para classes;
+b. (v) Atributos de uma classe devem ser obrigatoriamente inicializados para
 que as classes compilem;
-c. ( ) Uma classe de cadastro é responsável por manter o controle de outras
+c. (v) Uma classe de cadastro é responsável por manter o controle de outras
 classes mais simples, que chamamos de classes básicas;
-d. ( ) Uma variável declarada dentro de um método deve ser inicializada para
+d. (v) Uma variável declarada dentro de um método deve ser inicializada para
 que a classe seja compilável;
-e. ( ) Uma variável que seja uma classe declarada em um método é
+e. (f) Uma variável que seja uma classe declarada em um método é
 automaticamente inicializada com null;
-f. ( ) Construtores são rotinas especiais que servem para inicializar e
+f. (v) Construtores são rotinas especiais que servem para inicializar e
 configurar os objetos no momento da instanciação;
-g. ( ) Construtores não possuem tipo de retorno e podem ou não ter
+g. (v) Construtores não possuem tipo de retorno e podem ou não ter
 parâmetros;
 h. (v) Uma classe pode ter várias instâncias;*/
 
@@ -24,13 +24,48 @@ método. Eles devem chamar antes de tudo, o método da questão b. e
 retornar false se esse método já retornar false também;*/
 
 class Triangulo {
-    Raio: number;
-   
+    A: number;
+    B: number;
+    C: number;
+
+    constructor(A:number,B:number,C:number){
+        this.A = A;
+        this.B = B;
+        this.C = C;
+
+    }
+
+    met_retangulo(A:number,B:number,C:number):boolean{
+        if (B-C < A && A < B+C){
+            let retangulo = true;
+            return retangulo;
+    }}
     
-    calculaPerimetro(): number {
-    return 2*3.14*this.Raio ;
+    ehIsoceles(A:number,B:number,C:number): boolean{ 
+      
+        if (A == B || B == C || C == A){
+            let Isoceles = true;
+            return Isoceles;
+            }
     }
-    calcularArea(): number {
-    return 3.14*(this.Raio**2);    
+    cehEquilatero(A:number,B:number,C:number): boolean {
+        if (A == B && A==C ) {
+            let Equilatero = true;
+            return Equilatero;
+        }   
     }
-    }
+    ehEscaleto (A:number,B:number,C:number) : boolean {
+       
+        if (A != B && B != C && C != A){
+            let Escaleto = true;
+            return Escaleto;
+        }
+    }}
+
+
+    let c1 : Triangulo = new Triangulo(1,100,4);
+
+    console.log(c1);
+    console.log(c1.ehIsoceles);
+    console.log(c1.cehEquilatero);
+    console.log(c1.ehEscaleto);
