@@ -104,7 +104,7 @@ class Banco {
 	}
 
 	public alterar(conta: Conta): void {
-		let indice: number = this.consultarPorIndice(conta.numero);
+		let indice: number = this.consultarPorIndice(conta.obter_Numero());
 		if (indice != -1) {
 			this.contas[indice] = conta;
 		}
@@ -181,6 +181,9 @@ class Conta {
     constructor(numero: String, saldoInicial: number) {
 		this.numero = numero;
 		this.saldo = saldoInicial;
+	}
+	public obter_Numero(){
+		return this.numero
 	}
 
 	get sacar(valor: number): void {
